@@ -2,6 +2,7 @@ import 'package:doctor_app/features/app/landing_page_bloc/landing_page_bloc.dart
 import 'package:doctor_app/features/app/presentation/landing_page.dart';
 import 'package:doctor_app/features/auth_user/presentation/blocs/auth_cubit/auth_cubit.dart';
 import 'package:doctor_app/features/auth_user/presentation/blocs/sign_in_cubit/sign_in_cubit.dart';
+import 'package:doctor_app/features/auth_user/presentation/blocs/sign_up_cubit/sign_up_cubit.dart';
 import 'package:doctor_app/features/auth_user/presentation/pages/sign_in_screen.dart';
 import 'package:doctor_app/features/patients/presentation/blocs/patient_cubit/patient_cubit.dart';
 import 'package:doctor_app/features/patients/presentation/blocs/pick_patient_cubit/pick_patient_cubit.dart';
@@ -36,9 +37,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<SignInCubit>(
-          create: (context) => di.sl<SignInCubit>(),
-        ),
+        BlocProvider<SignInCubit>(create: (context) => di.sl<SignInCubit>()),
+        BlocProvider(create: (context) => di.sl<SignUpCubit>()),
         BlocProvider<LandingPageBloc>(
           create: (context) => LandingPageBloc(),
         ),

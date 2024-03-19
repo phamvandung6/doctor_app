@@ -1,4 +1,6 @@
+import 'package:doctor_app/features/auth_user/presentation/blocs/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -50,7 +52,16 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   width: 140,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<SignUpCubit>().signUp(
+                            emailController.text,
+                            passwordController.text,
+                          );
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Vui lòng đăng nhập lại'),
+                      ));
+                    },
                     child: const Text(
                       'Đăng kí',
                       style: TextStyle(color: Colors.white),
