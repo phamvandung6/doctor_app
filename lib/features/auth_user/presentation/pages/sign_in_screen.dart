@@ -3,6 +3,7 @@ import 'package:doctor_app/core/utils/widgets/toast.dart';
 import 'package:doctor_app/features/app/landing_page_bloc/landing_page_bloc.dart';
 import 'package:doctor_app/features/app/presentation/landing_page.dart';
 import 'package:doctor_app/features/auth_user/presentation/blocs/sign_in_cubit/sign_in_cubit.dart';
+import 'package:doctor_app/features/auth_user/presentation/pages/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -134,7 +135,11 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const SignUpScreen();
+                  }));
+                },
                 child: const Text('Đăng kí'),
               )
             ],
